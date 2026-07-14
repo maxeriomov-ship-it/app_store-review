@@ -14,5 +14,3 @@ All notable changes to this project are documented here. The format follows [Kee
 - Twenty-nine mandatory self-tests.
 - Safe install, update, and uninstall scripts.
 - GitHub Actions for tests, security checks, and public-link validation.
-
-[1.0.0]: https://github.com/maxeriomov-ship-it/app_store-review/releases/tag/v1.0.0

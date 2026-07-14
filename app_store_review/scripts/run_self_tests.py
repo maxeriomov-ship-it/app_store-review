@@ -436,11 +436,11 @@ def test_finding_identity_commands_and_redaction() -> None:
     require("path/to/project-root" in combined["command"], "default confirmation command lacks a safe project placeholder")
 
     secrets = [
-        ("myClientSecret = \"ultra-sensitive-123456\"", "sensitive-123456"),
-        ("request.setValue(\"Bearer swift-sensitive-123456\", forHTTPHeaderField: \"Authorization\")", "sensitive-123456"),
-        ("Authorization: Bearer header-sensitive-123456", "sensitive-123456"),
-        ("https://cdn.example.org/file?X-Amz-Signature=signed-sensitive-123456&part=1", "signed-sensitive-123456"),
-        ("customer@example.org", "customer@example.org"),
+        ("myClientSecret = \"redaction-test-only\"", "redaction-test-only"),
+        ("request.setValue(\"Bearer redaction-test-only\", forHTTPHeaderField: \"Authorization\")", "redaction-test-only"),
+        ("Authorization: Bearer redaction-test-only", "redaction-test-only"),
+        ("https://cdn.example.org/file?X-Amz-Signature=redaction-test-only&part=1", "redaction-test-only"),
+        ("person@redaction-test.example", "person@redaction-test.example"),
     ]
     for raw, forbidden in secrets:
         redacted = redact_text(raw)
