@@ -5,6 +5,8 @@
 
 [Русская версия](README.ru.md)
 
+Created by **Max Danilov**.
+
 An independent, open-source Codex skill for evidence-backed App Store submission readiness audits. It inspects iOS-capable projects, identifies potential review risks, maps findings to current official Apple sources, proposes scoped remediation, and supports rechecking after fixes.
 
 This project is not affiliated with, endorsed by, or sponsored by Apple or OpenAI.
@@ -296,3 +298,7 @@ Licensed under the [Apache License 2.0](LICENSE). Copyright 2026 Max Danilov.
 ## Roadmap
 
 Near-term work focuses on stronger Xcode target mapping, more built-bundle verification, expanded StoreKit test evidence, additional cross-platform fixtures, and safer source-registry maintenance. See [ROADMAP.md](ROADMAP.md). Roadmap items are plans, not commitments.
+
+## Author
+
+**Max Danilov** — [X](https://x.com/Distroux) · [LinkedIn](https://www.linkedin.com/in/yaromau/)

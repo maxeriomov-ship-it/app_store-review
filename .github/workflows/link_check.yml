@@ -30,5 +30,6 @@ jobs:
             --max-retries 3
             --retry-wait-time 2
             --exclude 'https://example\.(com|org|invalid)'
+            --exclude '^https://www\.linkedin\.com/in/yaromau/?$'
             './**/*.md'
           fail: true

@@ -5,6 +5,8 @@
 
 [English version](README.md)
 
+Автор: **Max Danilov**.
+
 Независимый открытый навык Codex для доказательного аудита приложений перед отправкой в App Store. Он проверяет проекты с iOS-целью, находит потенциальные риски ревью, связывает замечания с актуальными официальными источниками Apple, предлагает точечные исправления и выполняет повторную проверку.
 
 Проект не связан с Apple или OpenAI, не одобрен и не спонсируется ими.
@@ -294,3 +296,7 @@ python3 app_store_review/scripts/run_self_tests.py
 ## Дорожная карта
 
 Ближайшие направления: более точное Xcode target mapping, расширенная проверка built bundle, больше StoreKit evidence, дополнительные cross-platform fixtures и безопасное обслуживание реестра источников. См. [ROADMAP.md](ROADMAP.md). Roadmap — план, а не обязательство.
+
+## Автор
+
+**Max Danilov** — [X](https://x.com/Distroux) · [LinkedIn](https://www.linkedin.com/in/yaromau/)
