@@ -66,6 +66,7 @@ REPORT_HEADINGS = {
     "## High risks",
     "## Medium risks",
     "## Low risks",
+    "## Informational findings",
     "## Practical recommendations",
     "## Unverified areas",
     "## Manual actions",
@@ -319,6 +320,51 @@ def test_cli_json_and_markdown_reports() -> None:
         require(risky_report["metrics"]["finding_counts"]["High"] >= 1, "CLI risky report has no High finding")
         require("internal heuristic, not a rejection probability" in risky_markdown, "Markdown risk caveat is missing")
         require("Passing this audit does not guarantee Apple approval." in compliant_markdown, "Markdown limitations are incomplete")
+        low_section = risky_markdown.split("## Low risks", 1)[1].split("## Informational findings", 1)[0]
+        informational_section = risky_markdown.split("## Informational findings", 1)[1].split("## Practical recommendations", 1)[0]
+        require("Severity / confidence / verification: Informational" not in low_section, "Informational findings were grouped as Low risks")
+        require("Severity / confidence / verification: Informational" in informational_section, "Informational findings section is empty")
+
+
+def test_report_paths_are_share_safe() -> None:
+    report = report_for(RISKY)
+    rendered = json.dumps(report, ensure_ascii=False)
+    require(report["project"]["path"] == "<project-root>", "report exposes the absolute project root")
+    require(str(RISKY.resolve()) not in rendered, "report leaks the absolute audited-project path")
+    require(str(SKILL_ROOT.resolve()) not in rendered, "report leaks the absolute skill installation path")
+    require('"$SKILL_DIR/scripts/' in report["findings"][0]["command"], "finding command lacks a portable skill placeholder")
+    require('"path/to/project-root"' in report["recheck_command"], "recheck command lacks a safe project placeholder")
+
+
+def test_output_paths_cannot_mutate_project() -> None:
+    with tempfile.TemporaryDirectory(prefix="app-store-review-output-safety-") as directory:
+        project = Path(directory) / "project"
+        shutil.copytree(COMPLIANT, project)
+        attempts = [
+            (["--output-dir", str(project / "reports")], project / "reports"),
+            (["--json-output", str(project / "report.json")], project / "report.json"),
+            (["--markdown-output", str(project / "report.md")], project / "report.md"),
+        ]
+        for arguments, forbidden_path in attempts:
+            command = [
+                sys.executable,
+                str(SCRIPT_DIR / "run_audit.py"),
+                str(project),
+                *arguments,
+                "--simulate-missing-tools",
+                "--quiet",
+            ]
+            completed = subprocess.run(
+                command,
+                text=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                check=False,
+                timeout=60,
+            )
+            require(completed.returncode == 3, f"unsafe output path returned {completed.returncode}")
+            require("must be outside the audited project" in completed.stderr, "unsafe output rejection is unclear")
+            require(not forbidden_path.exists(), "audit wrote output inside the audited project")
 
 
 def test_missing_tool_handling() -> None:
@@ -337,7 +383,8 @@ def test_path_with_spaces_and_unicode() -> None:
         copied = Path(directory) / "Fixture с пробелами 🚀"
         shutil.copytree(COMPLIANT, copied)
         report, markdown = run_cli(copied, Path(directory) / "Отчёты с пробелами")
-        require(report["project"]["path"] == str(copied.resolve()), "Unicode/spaced project path was altered")
+        require(report["project"]["path"] == "<project-root>", "Unicode/spaced project path was not sanitized")
+        require(report["project"]["name"] == copied.name, "Unicode/spaced project name was altered")
         require(report["project"]["ios_target_detected"] is True, "scanner failed in Unicode/spaced path")
         require("App Store Review Audit" in markdown, "Markdown failed in Unicode/spaced path")
 
@@ -431,8 +478,8 @@ def test_finding_identity_commands_and_redaction() -> None:
     shifted["findings"] = [finding_at(900, "after unrelated line shift")]
     shifted_finding = finish_result(shifted)["findings"][0]
     require(combined["id"] == shifted_finding["id"], "finding ID changed after an unrelated line shift")
-    expected_script = str(SKILL_ROOT / "scripts" / "scan_selftest.py")
-    require(expected_script in combined["command"], "default confirmation command does not resolve the skill script absolutely")
+    expected_script = '"$SKILL_DIR/scripts/scan_selftest.py"'
+    require(expected_script in combined["command"], "default confirmation command lacks a portable skill placeholder")
     require("path/to/project-root" in combined["command"], "default confirmation command lacks a safe project placeholder")
 
     secrets = [
@@ -961,6 +1008,8 @@ def main() -> int:
         ("no static findings in compliant fixture", test_compliant_has_no_static_findings),
         ("compliant Xcode project is readable", test_compliant_xcode_project_is_readable),
         ("JSON and Markdown report generation", test_cli_json_and_markdown_reports),
+        ("share-safe report paths", test_report_paths_are_share_safe),
+        ("output paths cannot mutate audited project", test_output_paths_cannot_mutate_project),
         ("missing tool handling", test_missing_tool_handling),
         ("paths with spaces and Unicode", test_path_with_spaces_and_unicode),
         ("scanner failure isolation", test_scanner_failure_isolation),
