@@ -181,6 +181,17 @@ Compares the current project with a previous JSON report and separates resolved,
 
 Separates Apple's cited rule from the evidence-backed likely cause, checks the related code, screen, metadata, or backend state, recommends the minimum remedy, determines whether a new binary is needed, and drafts precise review steps and a professional reply.
 
+## Recommended reasoning level
+
+The skill works with any reasoning level available in Codex. The selected level affects audit depth, execution time, and how many edge cases Codex can investigate; it does not change Apple's requirements.
+
+- **Medium:** quick audits, small applications, targeted checks, and verification after fixes.
+- **High:** the primary recommendation for a complete pre-submission audit and for most production applications.
+- **Extra High:** complex applications involving subscriptions, multiple authentication methods, third-party SDKs, artificial intelligence, user-generated content, sensitive data, or complicated App Store requirements.
+- **Pro:** the deepest review of a large commercial application, particularly before its first submission or after repeated App Store rejections.
+
+For a final release audit, use High or Extra High when available. Model names and available reasoning levels may change, so choose primarily by the required reasoning depth rather than a specific model or model version. No reasoning level guarantees that every issue will be found or that Apple will approve the application.
+
 ## Direct scanner usage
 
 The scripts are read-only:
