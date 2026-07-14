@@ -1,0 +1,12 @@
+"app_title" = "Review Ready";
+"welcome_title" = "Welcome";
+"scan_receipt" = "Scan receipt";
+"restore_purchases" = "Restore Purchases";
+"delete_account" = "Delete account";
+"sign_out" = "Sign out";
+"signed_in" = "Signed in";
+"sign_in_failed" = "Sign-in failed";
+"camera_ready" = "Camera ready";
+"camera_denied" = "Camera access denied";
+"deletion_requested" = "Deletion requested";
+"signed_out" = "Signed out";

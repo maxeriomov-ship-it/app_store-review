@@ -1,0 +1,7 @@
+PODS:
+  - GoogleSignIn (8.0.0)
+DEPENDENCIES:
+  - GoogleSignIn
+SPEC CHECKSUMS:
+  GoogleSignIn: fixturechecksum
+COCOAPODS: 1.16.2

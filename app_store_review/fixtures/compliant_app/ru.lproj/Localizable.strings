@@ -1,0 +1,12 @@
+"app_title" = "Готово к проверке";
+"welcome_title" = "Добро пожаловать";
+"scan_receipt" = "Сканировать чек";
+"restore_purchases" = "Восстановить покупки";
+"delete_account" = "Удалить аккаунт";
+"sign_out" = "Выйти";
+"signed_in" = "Вход выполнен";
+"sign_in_failed" = "Не удалось войти";
+"camera_ready" = "Камера готова";
+"camera_denied" = "Доступ к камере запрещен";
+"deletion_requested" = "Удаление запрошено";
+"signed_out" = "Вы вышли";

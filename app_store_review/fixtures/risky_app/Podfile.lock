@@ -1,0 +1,10 @@
+PODS:
+  - GoogleSignIn (7.1.0)
+  - FirebaseAnalytics (11.0.0)
+DEPENDENCIES:
+  - GoogleSignIn
+  - FirebaseAnalytics
+SPEC CHECKSUMS:
+  GoogleSignIn: fixturechecksum
+  FirebaseAnalytics: fixturechecksum
+COCOAPODS: 1.15.2

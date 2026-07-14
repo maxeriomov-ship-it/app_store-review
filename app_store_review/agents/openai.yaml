@@ -1,0 +1,7 @@
+interface:
+  display_name: "App Store Review"
+  short_description: "Evidence-backed Apple submission readiness audit"
+  default_prompt: "Use $app-store-review to audit this iOS-capable project before App Store submission. Default to read-only Audit mode, verify applicable Apple requirements from current official sources, and distinguish verified findings from manual checks."
+
+policy:
+  allow_implicit_invocation: true

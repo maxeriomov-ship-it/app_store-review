@@ -1,0 +1,38 @@
+{
+  "name": "Review Ready",
+  "subtitle": "A fixture for release checks",
+  "description": "Scans receipts and keeps a private purchase history.",
+  "keywords": "receipt,history,scanner",
+  "category": "Productivity",
+  "localizations": ["en-US", "ru"],
+  "marketing_url": null,
+  "app_previews": [],
+  "support_url": "https://support.apple.com/apps",
+  "privacy_policy_url": "https://www.apple.com/legal/privacy/",
+  "screenshots": [
+    "iphone-01.png",
+    "iphone-02.png"
+  ],
+  "age_rating": "4+",
+  "review_contact": {
+    "first_name": "Review",
+    "last_name": "Owner",
+    "email": "review-owner@review-ready.example",
+    "phone": "+1-555-0100"
+  },
+  "review_notes": "Launch the app, use Sign in with Apple, then open the subscription screen. Restore Purchases is available on the same screen.",
+  "app_privacy": {
+    "tracking": false,
+    "data_linked_to_user": []
+  },
+  "requires_login": false,
+  "in_app_purchases": [
+    {
+      "product_id": "com.example.reviewready.monthly",
+      "display_name": "Monthly Pro",
+      "description": "Full receipt history and export.",
+      "review_screenshot": "iap-review.png",
+      "localizations": ["en-US", "ru"]
+    }
+  ]
+}

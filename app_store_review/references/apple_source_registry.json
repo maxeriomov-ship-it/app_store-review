@@ -1,0 +1,440 @@
+{
+  "schema_version": "1.0",
+  "checked_date": "2026-07-13",
+  "sources": [
+    {
+      "id": "ARG-1.2",
+      "title": "App Review Guidelines",
+      "section": "1.2 User-Generated Content; 1.2.1 Creator Content",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "last_checked": "2026-07-13",
+      "summary": "UGC and social apps need objectionable-content filtering, reporting with timely response, abusive-user blocking, and published contact information; creator content above the rating needs age controls.",
+      "applicability": "Apps with posts, comments, chat, profiles, shared media, communities, creator content, or other UGC.",
+      "status": "official-current-living"
+    },
+    {
+      "id": "ARG-2.1",
+      "title": "App Review Guidelines",
+      "section": "2.1 App Completeness; Before You Submit",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "last_checked": "2026-07-13",
+      "summary": "Submit a final and stable app with complete metadata, functional URLs and backends, review access, and reviewable in-app purchases; scrub placeholders and obvious technical problems.",
+      "applicability": "All submissions.",
+      "status": "official-current-living"
+    },
+    {
+      "id": "ARG-2.3",
+      "title": "App Review Guidelines",
+      "section": "2.3 Accurate Metadata",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "last_checked": "2026-07-13",
+      "summary": "Metadata, screenshots, previews, privacy information, price claims, age answers, and review notes must accurately reflect current functionality and purchases.",
+      "applicability": "All submissions and localizations.",
+      "status": "official-current-living"
+    },
+    {
+      "id": "ARG-3.1.1",
+      "title": "App Review Guidelines",
+      "section": "3.1.1 In-App Purchase",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "last_checked": "2026-07-13",
+      "summary": "Digital features and content generally require In-App Purchase; the guideline says developers should provide a restore mechanism for restorable purchases, and purchase representations must not mislead.",
+      "applicability": "Apps selling or unlocking digital content, features, credits, or services.",
+      "status": "official-current-living"
+    },
+    {
+      "id": "ARG-3.1.2",
+      "title": "App Review Guidelines",
+      "section": "3.1.2 Subscriptions; 3.1.2(c) Subscription Information",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "last_checked": "2026-07-13",
+      "summary": "Auto-renewable subscriptions must provide ongoing value; section 3.1.2(c) says developers should clearly describe what the customer receives for the price before subscription.",
+      "applicability": "Apps offering auto-renewable subscriptions.",
+      "status": "official-current-living"
+    },
+    {
+      "id": "ARG-4.2",
+      "title": "App Review Guidelines",
+      "section": "4.2 Minimum Functionality; 4.2.2; 4.2.3; 4.2.6",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "last_checked": "2026-07-13",
+      "summary": "Apps need adequate standalone utility or lasting entertainment and should be more than a repackaged website, advertisement, link collection, or lightly customized template.",
+      "applicability": "All apps, especially wrappers, catalogs, templates, and low-feature utilities.",
+      "status": "official-current-subjective"
+    },
+    {
+      "id": "ARG-4.8",
+      "title": "App Review Guidelines",
+      "section": "4.8 Login Services",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "last_checked": "2026-07-13",
+      "summary": "Apps using third-party or social login for the primary account must also offer an equivalent privacy-preserving login service unless a listed exception applies.",
+      "applicability": "Primary-account authentication using Google, Facebook, X, LinkedIn, Amazon, WeChat, or similar services.",
+      "status": "official-current-conditional"
+    },
+    {
+      "id": "ARG-5.1.1",
+      "title": "App Review Guidelines",
+      "section": "5.1.1 Data Collection and Storage",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "last_checked": "2026-07-13",
+      "summary": "Apps need an accessible privacy policy, applicable consent, clear purpose strings, respect for access decisions, and in-app account deletion when account creation is supported; the guideline separately says apps should minimize data collection.",
+      "applicability": "All apps; individual clauses depend on collection, protected resources, and accounts.",
+      "status": "official-current-living"
+    },
+    {
+      "id": "ARG-5.1.2",
+      "title": "App Review Guidelines",
+      "section": "5.1.2 Data Use and Sharing",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "last_checked": "2026-07-13",
+      "summary": "Personal data may not be used, transmitted, or shared without permission; sharing with third parties, including third-party AI, must be disclosed and explicitly permitted.",
+      "applicability": "Apps transmitting or sharing personal data, including to server-hosted AI providers.",
+      "status": "official-current-living"
+    },
+    {
+      "id": "ARG-5.6",
+      "title": "App Review Guidelines",
+      "section": "5.6 Developer Code of Conduct; Rejections and Appeals",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "last_checked": "2026-07-13",
+      "summary": "Developer representations and communications must be truthful, relevant, respectful, and current; rejected developers may communicate with App Review or appeal with evidence.",
+      "applicability": "Rejection responses, review communications, and appeals.",
+      "status": "official-current-living"
+    },
+    {
+      "id": "APPLE-APP-REVIEW",
+      "title": "App Review",
+      "section": "Avoiding common issues",
+      "url": "https://developer.apple.com/app-store/review/",
+      "last_checked": "2026-07-13",
+      "summary": "Apple highlights crashes, broken links, placeholders, incomplete review access, misleading behavior, privacy-policy defects, and insufficient lasting value as common issues.",
+      "applicability": "All pre-submission audits.",
+      "status": "official-current-guidance"
+    },
+    {
+      "id": "ACCOUNT-DELETION",
+      "title": "Offering account deletion in your app",
+      "section": "Account deletion guidance; Frequently asked questions",
+      "url": "https://developer.apple.com/support/offering-account-deletion-in-your-app/",
+      "last_checked": "2026-07-13",
+      "summary": "Account deletion must be easy to find, initiate in-app, cover the account and associated data, and not be replaced by deactivation. Explain timing when deletion is delayed and subscription effects when applicable; legally required retention can remain with disclosure.",
+      "applicability": "Apps supporting account creation, including automatically created guest accounts.",
+      "status": "official-current-guidance",
+      "effective_from": "2022-06-30"
+    },
+    {
+      "id": "SIWA-DELETION",
+      "title": "TN3194: Handling account deletions and revoking tokens for Sign in with Apple",
+      "section": "Invalidate a user session; account deletion handling",
+      "url": "https://developer.apple.com/documentation/technotes/tn3194-handling-account-deletions-and-revoking-tokens-for-sign-in-with-apple",
+      "last_checked": "2026-07-13",
+      "summary": "Sign in with Apple account deletion handling includes revoking Apple tokens and removing developer-held user data and sessions.",
+      "applicability": "Apps using Sign in with Apple.",
+      "status": "official-current-technical-note"
+    },
+    {
+      "id": "SIGN-IN-WITH-APPLE",
+      "title": "Sign in with Apple",
+      "section": "Overview and implementation topics",
+      "url": "https://developer.apple.com/documentation/signinwithapple",
+      "last_checked": "2026-07-13",
+      "summary": "Apple documents the native and web authentication capability and related server APIs.",
+      "applicability": "Apps implementing Sign in with Apple.",
+      "status": "official-current-documentation"
+    },
+    {
+      "id": "ASC-PLATFORM-METADATA",
+      "title": "Platform version information",
+      "section": "Platform version information; App Review information",
+      "url": "https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information",
+      "last_checked": "2026-07-13",
+      "summary": "Defines required screenshots, description, keywords, Support URL, copyright, review contact, notes, and non-expiring demo-account information.",
+      "applicability": "App Store Connect version metadata and review access.",
+      "status": "official-current-reference"
+    },
+    {
+      "id": "ASC-APP-INFORMATION",
+      "title": "App information",
+      "section": "App information properties",
+      "url": "https://developer.apple.com/help/app-store-connect/reference/app-information/app-information",
+      "last_checked": "2026-07-13",
+      "summary": "Defines app name, subtitle, privacy URL, Bundle ID, content rights, age rating, Kids selection, and license-agreement properties.",
+      "applicability": "App-level App Store Connect metadata.",
+      "status": "official-current-reference"
+    },
+    {
+      "id": "ASC-SCREENSHOTS",
+      "title": "Upload app previews and screenshots",
+      "section": "Screenshot requirements; app preview requirements",
+      "url": "https://developer.apple.com/help/app-store-connect/manage-app-information/upload-app-previews-and-screenshots",
+      "last_checked": "2026-07-13",
+      "summary": "Requires one to ten screenshots in supported formats and describes localization and device-size behavior; app previews are optional.",
+      "applicability": "Store listing media for each supported platform and applicable localization.",
+      "status": "official-current-help"
+    },
+    {
+      "id": "ASC-LOCALIZATION",
+      "title": "Localize app information",
+      "section": "Add, edit, and delete localizations",
+      "url": "https://developer.apple.com/help/app-store-connect/manage-app-information/localize-app-information",
+      "last_checked": "2026-07-13",
+      "summary": "Explains localized metadata behavior, primary-language fallback, and how screenshots and fields are inherited or localized.",
+      "applicability": "Apps with multiple App Store localizations.",
+      "status": "official-current-help"
+    },
+    {
+      "id": "ASC-AGE-RATING",
+      "title": "Set an app age rating",
+      "section": "Age rating questionnaire; overrides; regional ratings",
+      "url": "https://developer.apple.com/help/app-store-connect/manage-app-information/set-an-app-age-rating/",
+      "last_checked": "2026-07-13",
+      "summary": "Age rating is required; questionnaire answers must reflect content and capabilities, and Unrated apps cannot publish on the App Store.",
+      "applicability": "All apps.",
+      "status": "official-current-help"
+    },
+    {
+      "id": "ASC-APP-PRIVACY",
+      "title": "Manage app privacy",
+      "section": "App privacy responses and privacy policy information",
+      "url": "https://developer.apple.com/help/app-store-connect/manage-app-information/manage-app-privacy",
+      "last_checked": "2026-07-13",
+      "summary": "App privacy answers and privacy-policy information in App Store Connect must accurately cover the app and integrated third parties.",
+      "applicability": "All App Store apps.",
+      "status": "official-current-help"
+    },
+    {
+      "id": "APP-PRIVACY-DETAILS",
+      "title": "App Privacy Details",
+      "section": "Data collection, tracking, data types, and privacy links",
+      "url": "https://developer.apple.com/app-store/app-privacy-details/",
+      "last_checked": "2026-07-13",
+      "summary": "Defines collection, optional disclosure exceptions, tracking, linked data, data purposes, data categories, and required privacy-policy link behavior.",
+      "applicability": "Privacy Nutrition Label preparation and reconciliation.",
+      "status": "official-current-guidance"
+    },
+    {
+      "id": "PRIVACY-MANIFEST",
+      "title": "Privacy manifest files",
+      "section": "Overview; create a privacy manifest",
+      "url": "https://developer.apple.com/documentation/bundleresources/privacy-manifest-files",
+      "last_checked": "2026-07-13",
+      "summary": "PrivacyInfo.xcprivacy records collected-data practices, tracking domains, and required-reason API declarations for app and SDK bundles.",
+      "applicability": "Apps or SDKs using required-reason APIs, collecting data, enabling collection, tracking, or listed SDKs.",
+      "status": "official-current-documentation"
+    },
+    {
+      "id": "PRIVACY-DATA-USE",
+      "title": "Describing data use in privacy manifests",
+      "section": "Describe collected data and purposes",
+      "url": "https://developer.apple.com/documentation/bundleresources/describing-data-use-in-privacy-manifests",
+      "last_checked": "2026-07-13",
+      "summary": "Privacy manifests use Apple-defined data types, linkage and tracking flags, and allowed purposes for app or SDK collection declarations.",
+      "applicability": "Apps and SDKs declaring data collection.",
+      "status": "official-current-documentation"
+    },
+    {
+      "id": "REQUIRED-REASON-API",
+      "title": "Describing use of required reason API",
+      "section": "Overview; reporting privacy accessed API usage",
+      "url": "https://developer.apple.com/documentation/bundleresources/describing-use-of-required-reason-api",
+      "last_checked": "2026-07-13",
+      "summary": "Each applicable executable or dynamic-library bundle must declare approved, accurate reasons for covered APIs; undeclared use is not accepted by App Store Connect.",
+      "applicability": "Apps and third-party SDKs using covered API categories.",
+      "status": "official-current-living-list"
+    },
+    {
+      "id": "THIRD-PARTY-SDK",
+      "title": "Third-party SDK requirements",
+      "section": "Privacy manifests; signatures; SDKs requiring a manifest and signature",
+      "url": "https://developer.apple.com/support/third-party-SDK-requirements/",
+      "last_checked": "2026-07-13",
+      "summary": "Listed SDKs and repackaged copies require privacy manifests; listed binary SDKs also require signatures in the specified submission cases.",
+      "applicability": "Apps including an Apple-listed third-party SDK.",
+      "status": "official-current-living-list"
+    },
+    {
+      "id": "ATT",
+      "title": "App Tracking Transparency",
+      "section": "Overview",
+      "url": "https://developer.apple.com/documentation/apptrackingtransparency",
+      "last_checked": "2026-07-13",
+      "summary": "Documents the ATT framework, authorization request, status values, and NSUserTrackingUsageDescription implementation surface.",
+      "applicability": "Implementation in apps whose behavior meets Apple's tracking policy definition.",
+      "status": "official-current-documentation",
+      "effective_from": "iOS 14.5"
+    },
+    {
+      "id": "ATT-POLICY",
+      "title": "User privacy and data use",
+      "section": "Permission to track; tracking definition and examples; exceptions",
+      "url": "https://developer.apple.com/app-store/user-privacy-and-data-use/",
+      "last_checked": "2026-07-13",
+      "summary": "Defines tracking for App Store policy, lists examples and narrow exceptions, and requires ATT permission before tracking or accessing the advertising identifier.",
+      "applicability": "Apps linking user or device data with third-party data for targeted advertising, advertising measurement, or sharing with data brokers, subject to Apple's stated exceptions.",
+      "status": "official-current-policy",
+      "effective_from": "iOS 14.5"
+    },
+    {
+      "id": "HIG-PRIVACY",
+      "title": "Human Interface Guidelines: Privacy",
+      "section": "Requesting permission",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/privacy",
+      "last_checked": "2026-07-13",
+      "summary": "Request access only when needed and use specific, plain purpose strings that explain how and why the app uses the protected resource.",
+      "applicability": "System permission prompts and privacy-related interface behavior.",
+      "status": "official-current-design-guidance"
+    },
+    {
+      "id": "HIG-ACCESSIBILITY",
+      "title": "Human Interface Guidelines: Accessibility",
+      "section": "Accessibility overview; Vision; Interaction; Cognitive",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/accessibility",
+      "last_checked": "2026-07-13",
+      "summary": "Audit interfaces for perceivable, adaptable, and operable experiences, including larger text, VoiceOver, sufficient contrast, alternatives to single sensory cues, and familiar interactions.",
+      "applicability": "All user interfaces; exact checks depend on content and controls.",
+      "status": "official-current-design-guidance"
+    },
+    {
+      "id": "HIG-LAYOUT",
+      "title": "Human Interface Guidelines: Layout",
+      "section": "Layout guidance across Apple platforms",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/layout",
+      "last_checked": "2026-07-13",
+      "summary": "Interfaces should adapt to device size, orientation, safe areas, readable widths, system text sizing, and supported multitasking configurations.",
+      "applicability": "iPhone and iPad interfaces, including orientation and Split View where supported.",
+      "status": "official-current-design-guidance"
+    },
+    {
+      "id": "STOREKIT-RESTORE",
+      "title": "Restoring purchased products",
+      "section": "Overview",
+      "url": "https://developer.apple.com/documentation/storekit/restoring-purchased-products",
+      "last_checked": "2026-07-13",
+      "summary": "Give customers a user-initiated mechanism, such as Restore Purchases, to restore eligible purchases; do not automatically prompt for restoration at launch.",
+      "applicability": "Apps with restorable non-consumables or subscriptions.",
+      "status": "official-current-documentation"
+    },
+    {
+      "id": "STOREKIT-ENTITLEMENTS",
+      "title": "Transaction.currentEntitlements",
+      "section": "Discussion",
+      "url": "https://developer.apple.com/documentation/storekit/transaction/currententitlements",
+      "last_checked": "2026-07-13",
+      "summary": "StoreKit 2 exposes the latest transactions entitling a customer to non-consumables and subscriptions; refunded or revoked products are omitted.",
+      "applicability": "StoreKit 2 entitlement reconciliation.",
+      "status": "official-current-documentation"
+    },
+    {
+      "id": "STOREKIT-TESTING",
+      "title": "Testing In-App Purchases with sandbox",
+      "section": "Prepare for sandbox testing; product requests; transactions; subscriptions; refunds",
+      "url": "https://developer.apple.com/documentation/storekit/testing-in-app-purchases-with-sandbox",
+      "last_checked": "2026-07-13",
+      "summary": "Sandbox uses real App Store Connect product information and supports tests for product requests, purchase outcomes, interrupted and external transactions, renewals, billing failures, refunds, and server notifications without charging testers.",
+      "applicability": "Apps offering In-App Purchases or subscriptions.",
+      "status": "official-current-documentation"
+    },
+    {
+      "id": "STOREKIT-XCODE-TESTING",
+      "title": "Testing at all stages of development with Xcode and the sandbox",
+      "section": "Test environments and common StoreKit scenarios",
+      "url": "https://developer.apple.com/documentation/storekit/testing-at-all-stages-of-development-with-xcode-and-the-sandbox",
+      "last_checked": "2026-07-13",
+      "summary": "Use StoreKit Testing, Sandbox, and TestFlight at appropriate stages and cover purchases, restores, subscription changes, failures, and transactions that occur outside the app.",
+      "applicability": "StoreKit implementation and release verification.",
+      "status": "official-current-documentation"
+    },
+    {
+      "id": "HIG-IAP",
+      "title": "Human Interface Guidelines: In-app purchase",
+      "section": "Making signup effortless; subscription signup information",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/in-app-purchase",
+      "last_checked": "2026-07-13",
+      "summary": "Subscription signup should show name, duration, provided value, correctly localized billing amount, restore/sign-in access, and clear free-trial conversion; legal links are also expected.",
+      "applicability": "Paywalls and purchase interfaces.",
+      "status": "official-current-design-guidance"
+    },
+    {
+      "id": "APPLE-SUBSCRIPTIONS",
+      "title": "Auto-renewable Subscriptions",
+      "section": "Clearly describing subscriptions",
+      "url": "https://developer.apple.com/app-store/subscriptions/",
+      "last_checked": "2026-07-13",
+      "summary": "Subscription signup must include name, duration, service, prominent full renewal price, restore/sign-in path, and trial duration and post-trial price; metadata needs Terms and Privacy links.",
+      "applicability": "Auto-renewable subscription apps.",
+      "status": "official-current-guidance"
+    },
+    {
+      "id": "ASC-IAP",
+      "title": "In-App Purchase information",
+      "section": "General information; localizable information; App Review Screenshot",
+      "url": "https://developer.apple.com/help/app-store-connect/reference/in-app-purchases-and-subscriptions/in-app-purchase-information/",
+      "last_checked": "2026-07-13",
+      "summary": "Defines IAP identifiers, localized display fields, review notes, and review screenshot requirements and limits.",
+      "applicability": "In-App Purchase records in App Store Connect.",
+      "status": "official-current-reference"
+    },
+    {
+      "id": "ASC-SUBSCRIPTIONS",
+      "title": "Offer auto-renewable subscriptions",
+      "section": "Create products; add localizations; review information",
+      "url": "https://developer.apple.com/help/app-store-connect/manage-subscriptions/offer-auto-renewable-subscriptions/",
+      "last_checked": "2026-07-13",
+      "summary": "Configure a subscription group, products, duration, price, availability, review information, and localized metadata in App Store Connect.",
+      "applicability": "Auto-renewable subscriptions in App Store Connect.",
+      "status": "official-current-help"
+    },
+    {
+      "id": "ASC-EXPORT",
+      "title": "Overview of export compliance",
+      "section": "Determine export compliance requirements",
+      "url": "https://developer.apple.com/help/app-store-connect/manage-app-information/overview-of-export-compliance",
+      "last_checked": "2026-07-13",
+      "summary": "Apps using or incorporating encryption must complete the App Store Connect determination and provide documentation when required; Info.plist can record exempt/no-documentation outcomes.",
+      "applicability": "Apps using or incorporating encryption.",
+      "status": "official-current-help"
+    },
+    {
+      "id": "ASC-SUBMIT-REVIEW",
+      "title": "Overview of submitting for review",
+      "section": "Manage submissions to App Review",
+      "url": "https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/overview-of-submitting-for-review",
+      "last_checked": "2026-07-13",
+      "summary": "Explains how app versions and related content enter App Review, how review messages are organized, and which items may be submitted together or separately.",
+      "applicability": "Submission preparation and App Review communication.",
+      "status": "official-current-help"
+    },
+    {
+      "id": "HIG-GENERATIVE-AI",
+      "title": "Human Interface Guidelines: Generative AI",
+      "section": "Privacy",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/generative-ai",
+      "last_checked": "2026-07-13",
+      "summary": "For server models, minimize sharing, disclose off-device transfer and storage or training, ask before using personal or usage data, and provide opt-out where applicable.",
+      "applicability": "Apps with generative-AI features.",
+      "status": "official-current-design-guidance"
+    },
+    {
+      "id": "UPCOMING-REQUIREMENTS",
+      "title": "Upcoming Requirements",
+      "section": "SDK minimum requirements; approved reasons for APIs; age rating updates",
+      "url": "https://developer.apple.com/news/upcoming-requirements/",
+      "last_checked": "2026-07-13",
+      "summary": "As of April 28, 2026, iOS/iPadOS, tvOS, visionOS, and watchOS uploads require Xcode 26 and the corresponding platform 26 SDK; the page also tracks required-reason APIs and age-rating submission gates.",
+      "applicability": "Covered iOS/iPadOS, tvOS, visionOS, and watchOS App Store Connect uploads; this entry does not assert a macOS 26 SDK gate.",
+      "status": "official-current-living",
+      "effective_from": "2026-04-28"
+    },
+    {
+      "id": "NEWS-AGE-SOCIAL",
+      "title": "Age rating questionnaire now includes social media questions",
+      "section": "July 9, 2026 announcement",
+      "url": "https://developer.apple.com/news/?id=tlur8uvi",
+      "last_checked": "2026-07-13",
+      "summary": "Social-media capability questions are available now and become required for new apps and updates beginning in September 2026.",
+      "applicability": "Apps that redistribute, amplify, or enable interaction with UGC through feeds or discovery.",
+      "status": "official-current-future-gate"
+    }
+  ]
+}
