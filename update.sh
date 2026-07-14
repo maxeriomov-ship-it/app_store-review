@@ -27,7 +27,7 @@ while [ "$#" -gt 0 ]; do
     shift
 done
 
-SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+SCRIPT_DIR=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)
 
 if [ "$SKIP_PULL" -ne 1 ]; then
     command -v git >/dev/null 2>&1 || fail "git is required to update the clone"

@@ -27,7 +27,7 @@ done
 
 [ -n "${HOME:-}" ] || fail "HOME is not set"
 
-SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+SCRIPT_DIR=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)
 SOURCE_DIR="$SCRIPT_DIR/app_store_review"
 SKILLS_ROOT=${CODEX_SKILLS_DIR:-"$HOME/.agents/skills"}
 
@@ -108,4 +108,4 @@ printf 'Installed app_store_review at %s\n' "$DESTINATION"
 if [ -n "$BACKUP" ]; then
     printf 'Previous installation backed up at %s\n' "$BACKUP"
 fi
-printf '%s\n' 'Invoke it in Codex with: $app-store-review'
+printf '%s\n' "Invoke it in Codex with: \$app-store-review"
