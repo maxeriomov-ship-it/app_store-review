@@ -37,9 +37,13 @@ For each finding, include ID, verification/confidence, concise problem, stronges
 
 Use the same fields. Separate contextual/subjective issues from mandatory requirements.
 
-### Low and informational findings
+### Low risks
 
-Group only when the evidence, owner, and remedy genuinely match.
+Use the same fields for Low-severity risks. Do not mix advisory-only observations into this section.
+
+### Informational findings
+
+Keep non-risk observations and optional operational recommendations separate from Low findings. Group only when the evidence, owner, and remedy genuinely match.
 
 ### Practical recommendations
 

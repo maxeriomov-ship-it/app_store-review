@@ -6,7 +6,6 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import shlex
 import sys
 from pathlib import Path
 from typing import Any
@@ -214,9 +213,8 @@ def build_report(
     source_list = _source_list(findings, checks)
     project_scan = next((item for item in scanner_results if item.get("scanner") == "scan_project"), {})
     command = (
-        f"python3 {shlex.quote(str(Path(__file__).resolve()))} "
-        f"{shlex.quote(str(context.root))} --profile full --baseline "
-        f"{shlex.quote('path/to/previous-report.json')}"
+        'python3 "$SKILL_DIR/scripts/run_audit.py" "path/to/project-root" '
+        '--profile full --baseline "path/to/previous-report.json"'
     )
     counts = summarize_counts(findings)
     actionable = [item for item in findings if item.get("severity") != "Informational"]
@@ -240,7 +238,7 @@ def build_report(
         "profile": profile,
         "project": {
             "name": context.root.name,
-            "path": str(context.root),
+            "path": "<project-root>",
             "technology": project_scan.get("facts", {}).get("stacks", []),
             "ios_target_detected": project_scan.get("facts", {}).get("ios_target_detected"),
         },
@@ -299,6 +297,17 @@ def _atomic_write(path: Path, text: str) -> None:
     temporary.replace(path)
 
 
+def _output_path_outside_project(path: Path, root: Path, label: str) -> Path:
+    """Resolve an output path and reject writes into the audited project."""
+
+    resolved = path.expanduser().resolve()
+    try:
+        resolved.relative_to(root)
+    except ValueError:
+        return resolved
+    raise ValueError(f"{label} must be outside the audited project: {resolved}")
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Audit an iOS-capable project before App Store submission.")
     parser.add_argument("project", type=Path, help="Project root")
@@ -333,9 +342,24 @@ def main(argv: list[str] | None = None) -> int:
         schema_errors = validate_report_schema(report)
         if schema_errors:
             raise ValueError("; ".join(schema_errors))
-        output_dir = make_output_dir(args.output_dir.expanduser() if args.output_dir else None)
-        json_path = args.json_output.expanduser() if args.json_output else output_dir / "app-store-review-report.json"
-        markdown_path = args.markdown_output.expanduser() if args.markdown_output else output_dir / "app-store-review-report.md"
+        requested_output_dir = (
+            _output_path_outside_project(args.output_dir, root, "output directory")
+            if args.output_dir
+            else None
+        )
+        requested_json = (
+            _output_path_outside_project(args.json_output, root, "JSON output")
+            if args.json_output
+            else None
+        )
+        requested_markdown = (
+            _output_path_outside_project(args.markdown_output, root, "Markdown output")
+            if args.markdown_output
+            else None
+        )
+        output_dir = make_output_dir(requested_output_dir)
+        json_path = requested_json or output_dir / "app-store-review-report.json"
+        markdown_path = requested_markdown or output_dir / "app-store-review-report.md"
         _atomic_write(json_path, json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
         _atomic_write(markdown_path, markdown_report(report))
     except (OSError, ValueError, json.JSONDecodeError) as exc:

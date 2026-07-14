@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and releases use [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- Prevent Audit output paths from writing inside the audited project.
+- Remove absolute skill and project paths from shareable reports and confirmation commands.
+- Separate Informational findings from Low risks in Markdown reports.
+
 ## [1.0.0] - 2026-07-13
 
 ### Added

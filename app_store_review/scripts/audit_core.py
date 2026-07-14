@@ -10,7 +10,6 @@ import math
 import os
 import plistlib
 import re
-import shlex
 import shutil
 import subprocess
 import sys
@@ -346,8 +345,8 @@ def finish_result(result: dict[str, Any]) -> dict[str, Any]:
         finding.setdefault("scanner", scanner)
         if not finding.get("command"):
             finding["command"] = (
-                f"python3 {shlex.quote(str(scanner_path))} "
-                f"{shlex.quote('path/to/project-root')} --format json"
+                f'python3 "$SKILL_DIR/scripts/{scanner_path.name}" '
+                '"path/to/project-root" --format json'
             )
     result["findings"] = deduplicate_findings(result.get("findings", []))
     result["finished_at"] = utc_now()
@@ -833,7 +832,8 @@ def markdown_report(report: dict[str, Any]) -> str:
         ("Blocking issues", {"Critical"}),
         ("High risks", {"High"}),
         ("Medium risks", {"Medium"}),
-        ("Low risks", {"Low", "Informational"}),
+        ("Low risks", {"Low"}),
+        ("Informational findings", {"Informational"}),
     ]
     for heading, severities in sections:
         lines.extend([f"## {heading}", ""])

@@ -219,7 +219,7 @@ python3 "$HOME/.agents/skills/app_store_review/scripts/run_audit.py" \
   --baseline "/absolute/path/to/previous-report.json"
 ```
 
-Reports default to a temporary directory so the audited project is not modified.
+Reports default to a temporary directory so the audited project is not modified. Explicit report paths must also be outside the audited project; the runner rejects in-project destinations to preserve Audit mode's read-only guarantee.
 
 ## Example report summary
 
