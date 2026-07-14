@@ -1,0 +1,53 @@
+name: False positive
+description: Report a finding that is unsupported, overstated, or incorrectly scoped.
+title: "[False positive]: "
+labels: [false-positive]
+body:
+  - type: markdown
+    attributes:
+      value: Provide the smallest synthetic reproduction. Never upload a private app or unredacted audit report.
+  - type: input
+    id: finding
+    attributes:
+      label: Finding ID and rule ID
+      placeholder: PERMISSION-... / PERMISSION-USAGE-DESCRIPTION-NOT-DETECTED
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+    validations:
+      required: true
+  - type: input
+    id: stack
+    attributes:
+      label: Project stack
+      placeholder: SwiftUI, UIKit, React Native, Flutter, Capacitor, Expo, other
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Redacted evidence and minimal reproduction
+      description: Explain what matched and why it does not establish the reported risk.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected classification
+      description: Include expected severity, verification, confidence, or applicability.
+    validations:
+      required: true
+  - type: textarea
+    id: apple_source
+    attributes:
+      label: Relevant official Apple source or exception
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Data safety
+      options:
+        - label: The reproduction contains only synthetic or redacted data.
+          required: true

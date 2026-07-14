@@ -1,0 +1,48 @@
+name: Apple guideline update
+description: Report a changed official Apple requirement, effective date, or documentation section.
+title: "[Apple guideline update]: "
+labels: [apple-source-update]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Canonical Apple URL
+      placeholder: https://developer.apple.com/...
+    validations:
+      required: true
+  - type: input
+    id: section
+    attributes:
+      label: Guideline number or documentation section
+    validations:
+      required: true
+  - type: input
+    id: dates
+    attributes:
+      label: Observed and effective dates
+      placeholder: Observed YYYY-MM-DD; effective YYYY-MM-DD or unknown
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Concise description of the change
+      description: Paraphrase the requirement; do not copy large parts of Apple documentation.
+    validations:
+      required: true
+  - type: textarea
+    id: applicability
+    attributes:
+      label: Applicability and affected checks
+      description: Identify conditional scope, exceptions, scanner rules, and references that may need updates.
+    validations:
+      required: true
+  - type: checkboxes
+    id: authority
+    attributes:
+      label: Source confirmation
+      options:
+        - label: The mandatory claim is supported by an official Apple page.
+          required: true
+        - label: Any nonofficial material is identified only as a hypothesis.
+          required: true
